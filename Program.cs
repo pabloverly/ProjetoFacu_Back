@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using ApiTools;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -43,7 +44,7 @@ builder.Services.AddSwaggerGen(c =>
        });
    });
 
-var key = Encoding.ASCII.GetBytes("fedaf7d8863b48e197b9287d492b708e");
+var key = Encoding.ASCII.GetBytes(Settings.Secret);
 
 
 builder.Services.AddAuthentication(x =>
