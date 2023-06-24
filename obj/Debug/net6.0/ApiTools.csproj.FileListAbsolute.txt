@@ -27,3 +27,12 @@ D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\obj\Debug\net6.0\refint\ApiTo
 D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\obj\Debug\net6.0\ApiTools.pdb
 D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\obj\Debug\net6.0\ApiTools.genruntimeconfig.cache
 D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\obj\Debug\net6.0\ref\ApiTools.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\System.Security.Permissions.dll
