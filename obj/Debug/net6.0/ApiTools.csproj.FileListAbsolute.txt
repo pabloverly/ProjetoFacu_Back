@@ -36,3 +36,4 @@ D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.Id
 D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Arquivos\3_Dev\AUTENTICACAO\two_factor\ApiTools\bin\Debug\net6.0\Newtonsoft.Json.dll

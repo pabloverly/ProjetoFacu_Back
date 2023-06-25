@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YtzQlHoKRCuS0e4Zac0tARsRWqvMQbEKRArgOd5bNZIAx3Jo/lMQZIP5Co7YcmOgYzRqKmkQpyXy/2dWGo49WA==",
+  "dgSpecHash": "Kny6HXcgrhlwTjGxOvp1aaQ6aWOLekwLa1RBIEEJOxaKo1EvYDqH+CsnTUYUAg9Nb2OwAv9VDaFeGtVBOM8KNA==",
   "success": true,
   "projectFilePath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj",
   "expectedPackageFiles": [
@@ -41,6 +41,7 @@
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\pverly\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
