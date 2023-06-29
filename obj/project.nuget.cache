@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Kny6HXcgrhlwTjGxOvp1aaQ6aWOLekwLa1RBIEEJOxaKo1EvYDqH+CsnTUYUAg9Nb2OwAv9VDaFeGtVBOM8KNA==",
+  "dgSpecHash": "OXoeFeenvZsqF11Hwy02IXRte8w4bLMcJYt3d4zHLhgIzdlAMXChzQre2/z8DJalLRK6Lp1w+3jmOnrXUISO8g==",
   "success": true,
-  "projectFilePath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj",
+  "projectFilePath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pverly\\.nuget\\packages\\googleauthenticator\\3.1.0\\googleauthenticator.3.1.0.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
@@ -30,6 +30,7 @@
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.extensions.options\\2.2.0\\microsoft.extensions.options.2.2.0.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.extensions.webencoders\\2.2.0\\microsoft.extensions.webencoders.2.2.0.nupkg.sha512",
+    "C:\\Users\\pverly\\.nuget\\packages\\microsoft.identity.client\\4.54.1\\microsoft.identity.client.4.54.1.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.31.0\\microsoft.identitymodel.abstractions.6.31.0.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.31.0\\microsoft.identitymodel.jsonwebtokens.6.31.0.nupkg.sha512",
     "C:\\Users\\pverly\\.nuget\\packages\\microsoft.identitymodel.logging\\6.31.0\\microsoft.identitymodel.logging.6.31.0.nupkg.sha512",

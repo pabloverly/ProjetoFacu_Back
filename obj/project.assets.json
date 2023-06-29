@@ -432,6 +432,22 @@
           }
         }
       },
+      "Microsoft.Identity.Client/4.54.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "6.22.0"
+        },
+        "compile": {
+          "lib/net6.0/Microsoft.Identity.Client.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Identity.Client.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.IdentityModel.Abstractions/6.31.0": {
         "type": "package",
         "compile": {
@@ -1528,6 +1544,42 @@
         "microsoft.extensions.webencoders.nuspec"
       ]
     },
+    "Microsoft.Identity.Client/4.54.1": {
+      "sha512": "YkQkV3IRaA1W36HD4NRD1cq+QFr+4QPKK3SgTSpx+RiobXnLZ6E9anOjDi2TS7okOEofBbjR6GyTPp4IR0MnEQ==",
+      "type": "package",
+      "path": "microsoft.identity.client/4.54.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid10.0/Microsoft.Identity.Client.dll",
+        "lib/monoandroid10.0/Microsoft.Identity.Client.xml",
+        "lib/monoandroid90/Microsoft.Identity.Client.dll",
+        "lib/monoandroid90/Microsoft.Identity.Client.xml",
+        "lib/net45/Microsoft.Identity.Client.dll",
+        "lib/net45/Microsoft.Identity.Client.xml",
+        "lib/net461/Microsoft.Identity.Client.dll",
+        "lib/net461/Microsoft.Identity.Client.xml",
+        "lib/net6.0-android31.0/Microsoft.Identity.Client.dll",
+        "lib/net6.0-android31.0/Microsoft.Identity.Client.xml",
+        "lib/net6.0-ios15.4/Microsoft.Identity.Client.dll",
+        "lib/net6.0-ios15.4/Microsoft.Identity.Client.xml",
+        "lib/net6.0-windows7.0/Microsoft.Identity.Client.dll",
+        "lib/net6.0-windows7.0/Microsoft.Identity.Client.xml",
+        "lib/net6.0/Microsoft.Identity.Client.dll",
+        "lib/net6.0/Microsoft.Identity.Client.xml",
+        "lib/netcoreapp2.1/Microsoft.Identity.Client.dll",
+        "lib/netcoreapp2.1/Microsoft.Identity.Client.xml",
+        "lib/netstandard2.0/Microsoft.Identity.Client.dll",
+        "lib/netstandard2.0/Microsoft.Identity.Client.xml",
+        "lib/uap10.0.17763/Microsoft.Identity.Client.dll",
+        "lib/uap10.0.17763/Microsoft.Identity.Client.pri",
+        "lib/uap10.0.17763/Microsoft.Identity.Client.xml",
+        "lib/xamarinios10/Microsoft.Identity.Client.dll",
+        "lib/xamarinios10/Microsoft.Identity.Client.xml",
+        "microsoft.identity.client.4.54.1.nupkg.sha512",
+        "microsoft.identity.client.nuspec"
+      ]
+    },
     "Microsoft.IdentityModel.Abstractions/6.31.0": {
       "sha512": "SBa2DGEZpMThT3ki6lOK5SwH+fotHddNBKH+pfqrlINnl999BreRS9G0QiLruwfmcTDnFr8xwmNjoGnPQqfZwg==",
       "type": "package",
@@ -2527,6 +2579,7 @@
       "GoogleAuthenticator >= 3.1.0",
       "Microsoft.AspNetCore.Authentication >= 2.2.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.0",
+      "Microsoft.Identity.Client >= 4.54.1",
       "Microsoft.IdentityModel.Tokens >= 6.31.0",
       "Newtonsoft.Json >= 13.0.3",
       "Swashbuckle.AspNetCore >= 6.5.0",
@@ -2540,11 +2593,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj",
+      "projectUniqueName": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj",
       "projectName": "ApiTools",
-      "projectPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj",
+      "projectPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj",
       "packagesPath": "C:\\Users\\pverly\\.nuget\\packages\\",
-      "outputPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\obj\\",
+      "outputPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -2587,6 +2640,10 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "Microsoft.Identity.Client": {
+            "target": "Package",
+            "version": "[4.54.1, )"
           },
           "Microsoft.IdentityModel.Tokens": {
             "target": "Package",

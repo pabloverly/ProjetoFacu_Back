@@ -11,3 +11,6 @@ dotnet add package Microsoft.IdentityModel.Tokens
 dotnet add package System.IdentityModel.Tokens.Jwt 
 
 ````
+Para rodar o Dockerfile
+docker buikd -t apitools
+docker run --name apitools -d -t 8000:80 apitools

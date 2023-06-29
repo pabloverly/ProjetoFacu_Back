@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj": {}
+    "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj": {}
   },
   "projects": {
-    "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj": {
+    "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj",
+        "projectUniqueName": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj",
         "projectName": "ApiTools",
-        "projectPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\ApiTools.csproj",
+        "projectPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj",
         "packagesPath": "C:\\Users\\pverly\\.nuget\\packages\\",
-        "outputPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\two_factor\\ApiTools\\obj\\",
+        "outputPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -54,6 +54,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.54.1, )"
             },
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",

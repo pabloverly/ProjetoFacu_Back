@@ -28,6 +28,7 @@ namespace ApiTools.Controllers
 
             var token = TokenService.GenerateToken(user);
             user.Password = "";
+
             return new
             {
                 user = user,
