@@ -14,3 +14,13 @@ dotnet add package System.IdentityModel.Tokens.Jwt
 Para rodar o Dockerfile
 docker buikd -t apitools
 docker run --name apitools -d -t 8000:80 apitools
+
+
+Migration
+````
+dotnet tool install --global dotnet-ef
+dotnet ef --version
+dotnet ef migrations add Stopword
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+````

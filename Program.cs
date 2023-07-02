@@ -1,7 +1,9 @@
 using System.Security.Cryptography;
 using System.Text;
 using ApiTools;
+using ApiTools.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -25,6 +27,12 @@ builder.Services.AddCors(c =>
 
     });
 });
+//configuracao do context db
+// builder.Services.AddDbContext<AppDbContext>(options =>
+// {
+//     options.UseMySQL(builder.Configuration.GetConnectionString("MySqlConnection"));
+// });
+
 
 //com bearer
 builder.Services.AddSwaggerGen(c =>
