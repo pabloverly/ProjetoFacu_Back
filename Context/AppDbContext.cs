@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using ApiTools.Model;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace ApiTools.Context
 {
@@ -7,7 +8,8 @@ namespace ApiTools.Context
     {
         public DbSet<Stopword> Stopwords { get; set; }
         private readonly IConfiguration _configuration;
-        public AppDbContext(IConfiguration configuration)
+        public AppDbContext(IConfiguration configuration, DbContextOptions<AppDbContext> options)
+        : base(options)
         {
             _configuration = configuration;
         }

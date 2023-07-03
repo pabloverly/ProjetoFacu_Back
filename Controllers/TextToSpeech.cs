@@ -12,7 +12,7 @@ namespace ApiTools.Controllers
 {
     [ApiController]
     [Route("texttospeach/send")]
-    public class Texttospeech
+    public class Texttospeech : ControllerBase
     {
         private readonly ILogger<SendEmailController> _logger;
 

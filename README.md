@@ -17,6 +17,10 @@ docker run --name apitools -d -t 8000:80 apitools
 
 
 Migration
+*package
+Microsoft.EntityFrameworkCore 
+Microsoft.EntityFrameworkCore.Tools 
+
 ````
 dotnet tool install --global dotnet-ef
 dotnet ef --version
