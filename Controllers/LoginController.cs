@@ -1,13 +1,8 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ApiTools.Model;
-using System;
 using Microsoft.AspNetCore.Authorization;
-using System.Linq;
 using ApiTools.Services;
 using ApiTools.Repositories;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace ApiTools.Controllers
 {
