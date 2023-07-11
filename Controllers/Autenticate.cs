@@ -19,75 +19,142 @@ namespace ApiTools.Controllers
 
     public class Autenticate : Controller
     {
-        private readonly AutentiteDbContext _appDbcontext;
+        private readonly AppDbContext _appDbcontext;
+        public Autenticate(AppDbContext appDbcontext)
+        {
+            _appDbcontext = appDbcontext;
+        }
 
         [HttpPost]
         [Route("valid")]
         [AllowAnonymous]
         // [Authorize(AuthenticationSchemes = "Bearer")] //para obrigar o uso do bearer 
-        public async Task<ActionResult<dynamic>> Authenticate([FromBody] string model)
+        public async Task<ActionResult<dynamic>> Authenticate([FromQuery] string username)
         {
+            List<Contact> contactModels = new List<Contact>();
 
-            Contact contact = new Contact();
-            contact = ContactRepository.Get(model);
+            // var data = await _appDbcontext.Contact.Where(x => x.Username.Contains(model)).ToListAsync();
+            try
+            {
+                contactModels = await _appDbcontext.Contact.Where(x => x.Username.Equals(username)).ToListAsync();
+                if (contactModels[0].Username == null)
+                    return NotFound(new { message = "Usuário inválidos" });
 
-            if (contact == null)
+                var token = TokenAutenticeService.GenerateToken(username);
+                // model.Token = "";
+                _appDbcontext.SessionValid.Add(new SessionValid
+                {
+                    Token = token,
+                    CreateAt = DateTime.Now,
+                    Valid = DateTime.Now.AddHours(2),
+                    sn_ativo = true
+                });
+                await _appDbcontext.SaveChangesAsync();
+
+                return new
+                {
+                    contact = contactModels[0].Username,
+                    token = token
+                };
+            }
+            catch (Exception ex)
+            {
                 return NotFound(new { message = "Usuário inválidos" });
+            }
 
-            var token = TokenAutenticeService.GenerateToken(model);
-            // model.Token = "";
+            // Contact contact = new Contact();
+            // contact = ContactRepository.Get(model);
 
-            // return new
-            // {
-            //     contact = contact,
-            //     token = token
-            // };
 
-            return Ok
-              (new
-              {
-                  sucess = true,
-                  data = await _appDbcontext.Contact.ToListAsync()
-              }
-              );
+
+            // return Ok
+            //   (new
+            //   {
+            //       sucess = true,
+            //       data = await _appDbcontext.Contact.ToListAsync()
+            //   }
+            //   );
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetContatct([FromQuery] int? ContactId, [FromQuery] string? description)
+        public async Task<IActionResult> GetContatct([FromQuery] string token)
         {
-            if (description != null)
+
+            if (token != null)
             {
-                return Ok
-                (new
+                try
                 {
-                    sucess = true,
-                    data = await _appDbcontext.Contact.Where(x => x.Username.Contains(description)).ToListAsync()
+                    List<SessionValid> sessionModels = new List<SessionValid>();
+                    sessionModels = await _appDbcontext.SessionValid.Where(x => x.Token.Equals(token)).ToListAsync();
+
+                    if (sessionModels[0].sn_ativo == false)
+                        return NotFound(new { message = "Token inválidos" }
+                    );
+                    else
+
+                        return Ok
+                        (new
+                        {
+                            sucess = true,
+                            data = sessionModels
+                        }
+                        );
                 }
-                );
+                catch (Exception ex)
+                {
+                    return Ok(false);
+                }
             }
             else
             {
-                var contact = await _appDbcontext.Contact.FindAsync(ContactId);
-                if (contact == null)
-                {
-                    return NotFound
-                    (new
-                    {
-                        sucess = false,
-                        message = "Item não encontrado"
-                    }
-                    );
-                }
-                return Ok
+                return NotFound
                 (new
                 {
-                    sucess = true,
-                    data = contact
+                    sucess = false,
+                    message = "Não encontrado"
                 }
                 );
             }
 
         }
+
+
+        // [HttpGet]
+        // public async Task<IActionResult> GetContatct([FromQuery] int? ContactId, [FromQuery] string? Username)
+        // {
+        //     if (Username != null)
+        //     {
+        //         return Ok
+        //         (new
+        //         {
+        //             sucess = true,
+        //             data = await _appDbcontext.Contact.Where(x => x.Username.Contains(Username)).ToListAsync()
+        //         }
+        //         );
+        //     }
+        //     else
+        //     {
+        //         var contact = await _appDbcontext.Contact.FindAsync(ContactId);
+        //         if (contact == null)
+        //         {
+        //             return NotFound
+        //             (new
+        //             {
+        //                 sucess = false,
+        //                 message = "Item não encontrado"
+        //             }
+        //             );
+        //         }
+        //         return Ok
+        //         (new
+        //         {
+        //             sucess = true,
+        //             data = contact
+        //         }
+        //         );
+        //     }
+
+        // }
 
 
     }

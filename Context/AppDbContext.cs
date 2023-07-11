@@ -7,9 +7,10 @@ namespace ApiTools.Context
     public class AppDbContext : DbContext
     {
         public DbSet<Stopword> Stopwords { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<SessionValid> SessionValid { get; set; }
         private readonly IConfiguration _configuration;
-        public AppDbContext(IConfiguration configuration, DbContextOptions<AppDbContext> options)
-        : base(options)
+        public AppDbContext(IConfiguration configuration, DbContextOptions<AppDbContext> options) : base(options)
         {
             _configuration = configuration;
         }

@@ -16,19 +16,38 @@ namespace ApiTools.Controllers
         // [Authorize(AuthenticationSchemes = "Bearer")] //para obrigar o uso do bearer 
         public async Task<ActionResult<dynamic>> Authenticate([FromBody] User model)
         {
-            var user = UserRepository.Get(model.Username, model.Password);
-
-            if (user == null)
-                return NotFound(new { message = "Usuário ou senha inválidos" });
-
-            var token = TokenService.GenerateToken(user);
-            user.Password = "";
-
-            return new
+            try
             {
-                user = user,
-                token = token
-            };
+                var user = UserRepository.Get(model.Username, model.Password);
+
+                if (user == null)
+                {
+                    return NotFound(new { message = "Usuário ou senha inválidos" });
+                }
+                else
+                {
+
+                    var token = TokenService.GenerateToken(user);
+                    user.Password = "";
+
+                    return new
+                    {
+                        user = user,
+                        token = token
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest
+                (new
+                {
+                    sucess = false,
+                    message = ex.Message
+                }
+                );
+            }
+
         }
 
         //para autenticacao anonima

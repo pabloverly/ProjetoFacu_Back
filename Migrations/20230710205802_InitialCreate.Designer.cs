@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiTools.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230702153217_Stopword")]
-    partial class Stopword
+    [Migration("20230710205802_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,26 +22,33 @@ namespace ApiTools.Migrations
                 .HasAnnotation("ProductVersion", "7.0.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("ApiTools.Model.Stopword", b =>
+
+
+            modelBuilder.Entity("ApiTools.Model.SessionValid", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime>("Valid")
                         .HasColumnType("datetime");
+
+                    b.Property<bool>("sn_ativo")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stopwords");
+                    b.ToTable("SessionValid");
                 });
+
+
 #pragma warning restore 612, 618
         }
     }

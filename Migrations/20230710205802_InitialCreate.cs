@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace ApiTools.Migrations
 {
     /// <inheritdoc />
-    public partial class Stopword : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,28 +15,36 @@ namespace ApiTools.Migrations
             migrationBuilder.AlterDatabase()
                 .Annotation("MySQL:Charset", "utf8mb4");
 
+
+
             migrationBuilder.CreateTable(
-                name: "Stopwords",
+                name: "SessionValid",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    Description = table.Column<string>(type: "longtext", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime", nullable: false)
+                    Token = table.Column<string>(type: "longtext", nullable: false),
+                    CreateAt = table.Column<DateTime>(type: "datetime", nullable: false),
+                    Valid = table.Column<DateTime>(type: "datetime", nullable: false),
+                    sn_ativo = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stopwords", x => x.Id);
+                    table.PrimaryKey("PK_SessionValid", x => x.Id);
                 })
                 .Annotation("MySQL:Charset", "utf8mb4");
+
+
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+
             migrationBuilder.DropTable(
-                name: "Stopwords");
+                name: "SessionValid");
+
+
         }
     }
 }
