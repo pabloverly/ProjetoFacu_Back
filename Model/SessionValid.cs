@@ -13,6 +13,6 @@ namespace ApiTools.Model
         public string Token { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime Valid { get; set; }
-        public bool sn_ativo { get; set; }
+        public int sn_ativo { get; set; }
     }
 }

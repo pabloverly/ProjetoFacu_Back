@@ -47,7 +47,7 @@ namespace ApiTools.Controllers
                     Token = token,
                     CreateAt = DateTime.Now,
                     Valid = DateTime.Now.AddHours(2),
-                    sn_ativo = true
+                    sn_ativo = 1
                 });
                 await _appDbcontext.SaveChangesAsync();
 
@@ -87,7 +87,7 @@ namespace ApiTools.Controllers
                     List<SessionValid> sessionModels = new List<SessionValid>();
                     sessionModels = await _appDbcontext.SessionValid.Where(x => x.Token.Equals(token)).ToListAsync();
 
-                    if (sessionModels[0].sn_ativo == false)
+                    if (sessionModels[0].sn_ativo == 0)
                         return NotFound(new { message = "Token inválidos" }
                     );
                     else
