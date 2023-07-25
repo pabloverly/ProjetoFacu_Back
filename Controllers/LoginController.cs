@@ -3,6 +3,8 @@ using ApiTools.Model;
 using Microsoft.AspNetCore.Authorization;
 using ApiTools.Services;
 using ApiTools.Repositories;
+using ApiTools.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiTools.Controllers
 {
@@ -10,6 +12,11 @@ namespace ApiTools.Controllers
     [Route("jwt/account")]
     public class LoginController : ControllerBase
     {
+        private readonly AppDbContext _appDbcontext;
+        public LoginController(AppDbContext appDbcontext)
+        {
+            _appDbcontext = appDbcontext;
+        }
         [HttpPost]
         [Route("login")]
         [AllowAnonymous]
@@ -18,17 +25,16 @@ namespace ApiTools.Controllers
         {
             try
             {
-                var user = UserRepository.Get(model.Username, model.Password);
+                List<User> user = new List<User>();
+                user = await _appDbcontext.User.Where(x => x.Username.Equals(model.Username) && x.Password.Equals(model.Password)).ToListAsync();
 
-                if (user == null)
-                {
-                    return NotFound(new { message = "Usuário ou senha inválidos" });
-                }
+                if (user[0].Username == null || user == null)
+                    return NotFound(new { message = "Usuário inválidos" });
                 else
                 {
-
-                    var token = TokenService.GenerateToken(user);
-                    user.Password = "";
+                    var u = user[0].Username;
+                    var token = TokenService.GenerateToken(model);
+                    // user.Password = "";
 
                     return new
                     {

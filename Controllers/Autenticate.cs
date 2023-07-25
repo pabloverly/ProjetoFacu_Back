@@ -59,7 +59,7 @@ namespace ApiTools.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound(new { message = "Usuário inválidos" });
+                return NotFound(new { message = $"Usuário inválidos{ex.Message}" });
             }
 
             // Contact contact = new Contact();
