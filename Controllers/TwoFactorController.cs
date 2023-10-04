@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using ApiTools.Context;
 using ApiTools.Model;
 using ApiTools.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiTools.Controllers;
 
@@ -24,25 +25,60 @@ public class TwoFactorController : ControllerBase
     }
 
     [HttpGet("generateqr")]
-    // [Authorize]
+    //[Authorize]
     public async Task<ActionResult<string>> GenerateQR(string login)
     {
 
-        string key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 10);
-        SetupCode setupInfo = _tfa.GenerateSetupCode("Rede Gazeta (2FA)", login, key, false, 3);
+        string responseimage = VerificaLogin(login).Result.Value;
 
-        Console.WriteLine($"Email: {login} - Key: {key}"); //se possuir banco de dados conferir a chave
-
-
-        _appDbcontext.TwoFactor.Add(new TwoFactor
+        if (responseimage != "false")
+            return responseimage;
+        else
         {
-            login = login,
-            Key = key,
-            responseimage = setupInfo.QrCodeSetupImageUrl
-        });
-        await _appDbcontext.SaveChangesAsync();
+            string key = Guid.NewGuid().ToString().Replace("-", "").Substring(0, 10);
+            SetupCode setupInfo = _tfa.GenerateSetupCode("Rede Gazeta (2FA)", login, key, false, 3);
 
-        return setupInfo.QrCodeSetupImageUrl.ToString();
+            Console.WriteLine($"Email: {login} - Key: {key}"); //se possuir banco de dados conferir a chave
+
+
+            _appDbcontext.TwoFactor.Add(new TwoFactor
+            {
+                login = login,
+                Key = key,
+                responseimage = setupInfo.QrCodeSetupImageUrl
+            });
+            await _appDbcontext.SaveChangesAsync();
+
+            return setupInfo.QrCodeSetupImageUrl.ToString();
+        }
+    }
+    [HttpGet("VerificaLogin")]
+    //[Authorize]
+    public async Task<ActionResult<string>> VerificaLogin(string login)
+    {
+
+        List<TwoFactor> twofactorModels = await _appDbcontext.TwoFactor
+               .Where(x => x.login.Equals(login))
+               .ToListAsync();
+        // List<TwoFactor> twofactorModels = new List<TwoFactor>();
+
+        // var data = await _appDbcontext.Contact.Where(x => x.Username.Contains(model)).ToListAsync();
+        try
+        {
+            if (twofactorModels.Count == 0)
+            {
+                // Não foram encontrados resultados, retorne uma mensagem apropriada
+                return "false";
+            }
+
+            return twofactorModels[0].responseimage;
+
+        }
+        catch (Exception ex)
+        {
+            return ex.Message;
+        }
+
     }
     // [HttpPost("validate")]
     // // [Authorize]
@@ -56,12 +92,43 @@ public class TwoFactorController : ControllerBase
     //     return _tfa.ValidateTwoFactorPIN(key, code);
     // }
 
+    //VERIFICA QRCODE E A CHAVE SECRETA
     [HttpPost("validatecode")]
     // [Authorize]
     public ActionResult<bool> ValidateCode(string code, string key)
     {
-
         return _tfa.ValidateTwoFactorPIN(key, code);
+    }
+
+    //VERIFICA BUSCA A CHAVE SECRETA NO BANCO E VALIDA O QRCODE
+    [HttpPost("validate")]
+    // [Authorize]
+    public async Task<ActionResult<bool>> Validate(string login, string key)
+    {
+        string codesecret = "";
+        List<TwoFactor> twofactorModels = await _appDbcontext.TwoFactor
+              .Where(x => x.login.Equals(login))
+              .ToListAsync();
+        // List<TwoFactor> twofactorModels = new List<TwoFactor>();
+
+        // var data = await _appDbcontext.Contact.Where(x => x.Username.Contains(model)).ToListAsync();
+        try
+        {
+            if (twofactorModels.Count == 0)
+            {
+                // Não foram encontrados resultados, retorne uma mensagem apropriada
+                // return false;
+            }
+            codesecret = twofactorModels[0].Key;
+            // return twofactorModels[0].Key;
+
+        }
+        catch (Exception ex)
+        {
+            return false;
+        }
+
+        return _tfa.ValidateTwoFactorPIN(codesecret, key);
     }
 
 
