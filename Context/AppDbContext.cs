@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using ApiTools.Model;
-using Pomelo.EntityFrameworkCore.MySql;
 
 namespace ApiTools.Context
 {

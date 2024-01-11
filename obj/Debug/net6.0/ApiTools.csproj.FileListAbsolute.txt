@@ -170,3 +170,4 @@ D:\Arquivos\3_Dev\AUTENTICACAO\ToolsAutenticate\ApiTools\obj\Debug\net6.0\static
 D:\Arquivos\3_Dev\AUTENTICACAO\ToolsAutenticate\ApiTools\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.ApiTools.props
 D:\Arquivos\3_Dev\AUTENTICACAO\ToolsAutenticate\ApiTools\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.ApiTools.props
 D:\Arquivos\3_Dev\AUTENTICACAO\ToolsAutenticate\ApiTools\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Arquivos\3_Dev\AUTENTICACAO\ToolsAutenticate\ApiTools\obj\Debug\net6.0\ApiTools.sourcelink.json
