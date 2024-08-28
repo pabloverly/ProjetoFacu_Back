@@ -22,7 +22,7 @@ namespace ApiTools.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public ActionResult<IEnumerable<Produtos>> Get()
         {
             var produtos = _produtoService.GetAll();
@@ -30,7 +30,7 @@ namespace ApiTools.Controllers
         }
 
         [HttpGet("{id}")]
-        [Authorize]
+        //[Authorize]
         public ActionResult<Produtos> Get(int id)
         {
             var produto = _produtoService.GetById(id);
@@ -41,19 +41,27 @@ namespace ApiTools.Controllers
             return Ok(produto);
         }
 
+        [HttpGet("with-variations")]
+        //[Authorize]
+        public IActionResult GetProdutosWithVariations()
+        {
+            var produtos = _produtoService.GetProdutosWithVariations();
+            return Ok(produtos);
+        }
+
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         public ActionResult Add([FromBody] Produtos produto)
         {
             _produtoService.Add(produto);
-            return CreatedAtAction(nameof(Get), new { id = produto.cd_prouto }, produto);
+            return CreatedAtAction(nameof(Get), new { id = produto.Id }, produto);
         }
 
         [HttpPut("{id}")]
-        [Authorize]
+        //[Authorize]
         public ActionResult Update(int id, [FromBody] Produtos produto)
         {
-            if (id != produto.cd_prouto)
+            if (id != produto.Id)
             {
                 return BadRequest();
             }
@@ -69,7 +77,7 @@ namespace ApiTools.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
+        //[Authorize]
         public ActionResult Delete(int id)
         {
             var produto = _produtoService.GetById(id);

@@ -9,6 +9,7 @@ namespace ApiTools.Model
     {
         IEnumerable<Produtos> GetAll();
         Produtos GetById(int id);
+        IEnumerable<dynamic> GetProdutosWithVariations();
         void Add(Produtos produto);
         void Update(Produtos produto);
         void Delete(int id);

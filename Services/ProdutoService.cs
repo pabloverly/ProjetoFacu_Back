@@ -25,6 +25,10 @@ namespace ApiTools.Services
         {
             return _produtoRepository.GetById(id);
         }
+        public IEnumerable<dynamic> GetProdutosWithVariations()
+        {
+            return _produtoRepository.GetProdutosWithVariations();
+        }
 
         public void Add(Produtos produto)
         {

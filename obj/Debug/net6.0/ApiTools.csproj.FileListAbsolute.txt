@@ -178,7 +178,6 @@ D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.Assem
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.csproj.CoreCompileInputs.cache
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.MvcApplicationPartsAssemblyInfo.cs
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.MvcApplicationPartsAssemblyInfo.cache
-D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.sourcelink.json
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.dll
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\refint\ApiTools.dll
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.pdb

@@ -42,7 +42,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //com bearer
 builder.Services.AddSwaggerGen(c =>
    {
-       c.SwaggerDoc("v1", new OpenApiInfo { Title = "Minha API", Version = "v1" });
+       c.SwaggerDoc("v1", new OpenApiInfo { Title = "Coffee API", Version = "v1" });
 
        // Adicionar esquema de segurança JWT ao Swagger
        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
