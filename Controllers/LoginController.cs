@@ -56,29 +56,7 @@ namespace ApiTools.Controllers
 
         }
 
-        //para autenticacao anonima
-        [HttpGet]
-        [Route("anonymous")]
-        [AllowAnonymous]
-        public string Anonymous() => "Acesso anônimo";
-
-        //so usuarios autenticados
-        [HttpGet]
-        [Route("authenticated")]
-        [Authorize] //ou [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)] 
-        public string Authenticated() => String.Format("Autenticado - {0}", User.Identity.Name);
-
-        //so usuarios com a role employee ou manager
-        [HttpGet]
-        [Route("role")]
-        [Authorize(Roles = "adm,user")] //acesso dos grupos
-        public string Employee() => "Acesso permitido por grupo";
-
-        //so usuarios com a role admin
-        [HttpGet]
-        [Route("manager")]
-        [Authorize(Roles = "manager")]
-        public string Manager() => "Acesso admin";
+       
 
 
     }

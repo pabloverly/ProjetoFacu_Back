@@ -2,6 +2,8 @@ using System.Security.Cryptography;
 using System.Text;
 using ApiTools;
 using ApiTools.Context;
+using ApiTools.Model;
+using ApiTools.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -27,6 +29,9 @@ builder.Services.AddCors(c =>
 
     });
 });
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<IProdutoService, ProdutoService>();
+
 // configuracao do context db
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
@@ -37,17 +42,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 //com bearer
 builder.Services.AddSwaggerGen(c =>
    {
-       c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tools Autentication API", Version = "v1" });
+       c.SwaggerDoc("v1", new OpenApiInfo { Title = "Minha API", Version = "v1" });
 
-       // Adicionar cabeçalho de autorização
+       // Adicionar esquema de segurança JWT ao Swagger
        c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
        {
-           In = ParameterLocation.Header,
-           Description = "Entre com um token JWT",
+           Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
            Name = "Authorization",
-           Type = SecuritySchemeType.ApiKey
+           In = ParameterLocation.Header,
+           Type = SecuritySchemeType.ApiKey,
+           Scheme = "Bearer"
        });
-
        c.AddSecurityRequirement(new OpenApiSecurityRequirement
        {
             {

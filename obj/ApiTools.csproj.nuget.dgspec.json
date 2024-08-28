@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj": {}
+    "D:\\Arquivos\\2_Doc\\pdf\\atividade\\PROJETO\\ApiTools\\ApiTools.csproj": {}
   },
   "projects": {
-    "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj": {
+    "D:\\Arquivos\\2_Doc\\pdf\\atividade\\PROJETO\\ApiTools\\ApiTools.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj",
+        "projectUniqueName": "D:\\Arquivos\\2_Doc\\pdf\\atividade\\PROJETO\\ApiTools\\ApiTools.csproj",
         "projectName": "ApiTools",
-        "projectPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\ApiTools.csproj",
+        "projectPath": "D:\\Arquivos\\2_Doc\\pdf\\atividade\\PROJETO\\ApiTools\\ApiTools.csproj",
         "packagesPath": "C:\\Users\\pverly\\.nuget\\packages\\",
-        "outputPath": "D:\\Arquivos\\3_Dev\\AUTENTICACAO\\ToolsAutenticate\\ApiTools\\obj\\",
+        "outputPath": "D:\\Arquivos\\2_Doc\\pdf\\atividade\\PROJETO\\ApiTools\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +38,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -111,6 +117,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.31, 6.0.31]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.31, 6.0.31]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.31, 6.0.31]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.31, 6.0.31]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -119,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

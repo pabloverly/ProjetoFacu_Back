@@ -5,7 +5,8 @@ namespace ApiTools.Context
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Stopword> Stopwords { get; set; }
+        public DbSet<Produtos> Produtos { get; set; }
+        // public DbSet<Stopword> Stopwords { get; set; }
         public DbSet<Contact> Contact { get; set; }
         public DbSet<SessionValid> SessionValid { get; set; }
         public DbSet<User> User { get; set; }
@@ -21,6 +22,15 @@ namespace ApiTools.Context
             string connectionString = _configuration.GetConnectionString("MySqlConnection");
             optionsBuilder.UseMySQL(connectionString);
 
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Produtos>()
+                .HasKey(p => p.cd_prouto);
+
+            // Outras configurações...
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
