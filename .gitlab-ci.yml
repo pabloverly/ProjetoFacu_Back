@@ -1,0 +1,72 @@
+stages:
+- build_production
+- build_homologacao
+# - test
+- deploy_production
+- deploy_homologacao
+
+Build Production:
+  stage: build_production
+  tags:
+  - release
+  image: docker:latest
+  services:
+  - docker:dind
+  script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - docker build -t $CI_REGISTRY_IMAGE .
+  - docker push $CI_REGISTRY_IMAGE
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^release-[0-9]+\.[0-9]+\.[0-9]+$/'
+
+Build Homologacao:
+  stage: build_homologacao
+  tags:
+  - stage
+  image: docker:latest
+  services:
+  - docker:dind
+  script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - docker build -t $CI_REGISTRY_IMAGE .
+  - docker push $CI_REGISTRY_IMAGE
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^stage-[0-9]+\.[0-9]+\.[0-9]+$/'
+
+# test:
+#   stage: test
+#   tags:
+#   - release
+#   image: docker:latest #mcr.microsoft.com/dotnet/sdk:7.0
+#   script:
+#   - dotnet test
+#   rules:
+#   - if: '$CI_COMMIT_TAG =~ /^release-[0-9]+\.[0-9]+\.[0-9]+$/'
+
+Deploy Producao:
+  stage: deploy_production
+  tags:
+  - release
+  image: docker:latest
+  services:
+  - docker:dind
+  script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - docker pull $CI_REGISTRY_IMAGE
+  - docker run -d --name api-coffee -p 5001:80 -v coffee:/app/data $CI_REGISTRY_IMAGE
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^release-[0-9]+\.[0-9]+\.[0-9]+$/'
+
+Deploy Homologacao:
+  stage: deploy_homologacao
+  tags:
+  - stage
+  image: docker:latest
+  services:
+  - docker:dind
+  script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - docker pull $CI_REGISTRY_IMAGE
+  - docker run -d --name api-memorysearch -p 8090:80 -v coffee:/app/data $CI_REGISTRY_IMAGE
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^stage-[0-9]+\.[0-9]+\.[0-9]+$/'
