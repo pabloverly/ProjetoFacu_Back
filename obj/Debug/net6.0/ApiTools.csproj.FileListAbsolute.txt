@@ -263,3 +263,4 @@ D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\scopedcss\bund
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.csproj.Up2Date
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.genruntimeconfig.cache
 D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ref\ApiTools.dll
+D:\Arquivos\2_Doc\pdf\atividade\PROJETO\ApiTools\obj\Debug\net6.0\ApiTools.sourcelink.json
